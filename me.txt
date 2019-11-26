@@ -1,0 +1,1266 @@
+<span id="a">code@nerve</span>:<span id="b">~</span><span id="c">$</span> cd CodeNerve/<!-- kjsdfhkjdhsfkjdshfkj -->About_Us
+<span id="a">coder@nerve</span>:<span id="b">~</span><span id="c">$</span> cat <!-- kjsdfhkjdhsfkjdshfkj -->codenerve.txt<br/><br/>
+My favorite code quote,“when you don't create things, you become defined by your tastes rather than ability. "<span id="k">Code for Everyone</span>". <!-- sjkfhskjf -->
+
+Hey There! This is the portflio website in the skin of a terminal.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>You can see that, this is how your portfolio would look like.</p>
+<p>myHostname = window.location.hostname;
+var myTLD = "." + myHostname.substring(myHostname.indexOf("wupload") + "wupload.".length).split(".")[0];
+
+function afterLoad() {
+  return
+}
+ieFixForFileSelectionOnChangeEventTimer = null;
+
+function ieFixForFileSelectionOnChangeEvent(a) {
+  $("#siteName").toggle();
+  if ($("#inputFileSelection").val() == "") {
+    ieFixForFileSelectionOnChangeEventTimer = setTimeout("ieFixForFileSelectionOnChangeEvent()", 200)
+  } else {
+    $("body")[0].focus()
+  }
+}
+function urlencode(a) {
+  return escape(a.toString().replace(/%/g, "%25").replace(/\+/g, "%2B")).replace(/%25/g, "%")
+}
+$(document).ajaxStart(function() {
+  $("body").addClass("ajaxLoading")
+});
+$(document).ajaxStop(function() {
+  $("body").removeClass("ajaxLoading")
+});
+$(document).ajaxError(function(d, c, a, b) {
+  CMApplication.Widgets.Dialog.close();
+  CMApplication.Widgets.Dialog.displayMessage(c.responseText, CMApplication.Widgets.Dialog.Types.exception)
+});
+jQuery.setCookie = function(b, c, a) {
+  var d = new Date();
+  d.setDate(d.getDate() + a);
+  cookieDomain = ".wupload" + myTLD;
+  document.cookie = b + "=" + escape(c) + ((a == null) ? "" : ";expires=" + d.toUTCString() + "; path=/;domain=" + cookieDomain + ";")
+};
+jQuery.getCookie = function(a) {
+  if (document.cookie.length > 0) {
+    c_start = document.cookie.indexOf(a + "=");
+    if (c_start != -1) {
+      c_start = c_start + a.length + 1;
+      c_end = document.cookie.indexOf(";", c_start);
+      if (c_end == -1) {
+        c_end = document.cookie.length
+      }
+      return unescape(document.cookie.substring(c_start, c_end))
+    }
+  }
+  return ""
+};
+jQuery.unparam = function(d) {
+  var f = {},
+    c = d.split("&"),
+    e, b, a;
+  for (b = 0, a = c.length; b < a; b++) {
+    e = c[b].split("=", 2);
+    f[decodeURIComponent(e[0])] = (e.length == 2 ? decodeURIComponent(e[1].replace(/\+/g, " ")) : true)
+  }
+  return f
+};
+CMApplication = {
+  User: {
+    RolesNames: ["anonymous", "free", "premium"],
+    RolesValues: {
+      ANONYMOUS: 0,
+      FREE: 1,
+      PREMIUM: 2
+    }, sessId: "",
+    email: "",
+    isAffiliate: false,
+    role: "anonymous"
+  }, Bootstrap: {
+    run: function() {
+      for (var a in this) {
+        if (a.indexOf("_init") === -1) {
+          continue
+        }
+        this[a]()
+      }
+      CMApplication.Widgets.Ajax._init()
+    }
+  }, Dictionnary: {
+    SEARCH_ALL_FOLDERS: "Search all folders:",
+    SEARCH_THIS_FOLDERS: "Search this folders:",
+    PLEASE_WAIT: "Please Wait...",
+    SHARE: "Share",
+    SHARE_FILES: "Share Files",
+    EDIT: "Edit",
+    TRASH: "Trash",
+    DOWNLOAD_READY: "Download Ready",
+    START_DOWNLOAD_NOW: "Start download now!",
+    LEAVING_WILL_CANCEL_UPLOADS: "If you continue, your upload(s) will be cancelled.",
+    YOUR_UPLOADS: "Your uploads",
+    COMPLETED: "Completed",
+    CLOSE: "Close",
+    VIEW_LINKS: "View Links",
+    UNEXPECTED_PROCESS_ERROR: "Unexpected error during process",
+    LOGIN_UNEXPECTED_PROCESS_ERROR: "Unexpected error during login",
+    SYSTEM_ERROR: "System Error",
+    ERROR: "Error",
+    NOTICE: "Notice",
+    FILESYSTEM_MOVE_INSTRUCTION: "Select the file/folder you want to move on the right side of the file browser.",
+    FILESYSTEM_COPY_INSTRUCTION: "Select the file/folder you want to copy on the right side of the file browser.",
+    FILESYSTEM_TRASH_INSTRUCTION: "Select the file/folder you want to delete on the right side of the file browser.",
+    FILESYSTEM_GENERATELINKS_INSTRUCTION: "Select the file(s) you want to generate link on the right side of the file browser.",
+    FILESYSTEM_PREMIUM_INSTRUCTION: "Select the file(s) you want to set only for premium on the right side of the file browser.",
+    FOLDER_ID_REQUIRED: "Folder ID should be specified",
+    FILESYSTEM_MOVE_SOURCE_IDENTICAL_TO_DESTINATION: "Impossible to move: The source folder is identical then the destination",
+    FILESYSTEM_MOVE_DESTINATION_SUBFOLDER_OF_SOURCE: "Impossible to move: The destination folder is a subfolder of the source.",
+    FILESYSTEM_MOVE_UNABLE_TO_MOVE: "Unable to move selected file/folder",
+    FILESYSTEM_COPY_UNABLE_TO_COPY: "Unable to copy selected file/folder",
+    FILESYSTEM_TRASH_UNABLE_TO_TRASH: "Unable to trash selected file/folder",
+    FILESYSTEM_PREMIUM_UNABLE_TO_PREMIUM: "Unable to set only for premium selected file(s)",
+    COPY_FOLDER_NOT_YET_IMPLEMENTED: "Copy of folder not yet implemented",
+    PAGE_SHOULD_BE_OPENED_IN_NEW_WINDOW: "For technical reasons, this page should be opened in a new window/tab when uploading a file.",
+    USER_HAS_TO_WAIT: "User has to wait",
+    VIEW_ALL_LINKS: "View all links",
+    SELECT_A_DESTINATION: "Select a destination",
+    MOVE: "Move",
+    CANCEL: "Cancel",
+    CANCEL_UPLOAD: "Cancel Upload",
+    ARE_YOU_SURE_YOU_WANT_TO_DELETE_THESE_FILES: "Are you sure you want to delete these files / folder ?",
+    ARE_YOU_SURE_YOU_WANT_TO_SET_THESE_FILES_ONLY_PREMIUM: "Are you sure you want to set these files only for premium?",
+    ARE_YOU_SURE_YOU_WANT_TO_UNSET_THESE_FILES_ONLY_PREMIUM: "Are you sure you want to unset these files only for premium?",
+    DESCRIPTION: "Description:",
+    IS_PUBLIC: "Is Public:",
+    LINK: "Link",
+    LINKS: "Links:",
+    DATE_CREATED: "Created On:",
+    DATE_UPDATED: "Updated On:",
+    MUST_BE_PUBLIC: "Must be public",
+    COPY: "Copy",
+    REMOTE_UPLOAD: "Remote Upload",
+    WEB_UPLOAD: "Web Upload",
+    UNKNOWN: "Unknown",
+    SIZE: "Size",
+    SOURCE: "Source",
+    PASSWORD: "Password",
+    PREMIUM_ONLY: "Premium Only",
+    TOTAL_SIZE: "Total Size:",
+    FOLLOWING_ERROR_DURING_UPLOAD: "The following errors happen during the upload:",
+    RENAME: "Rename",
+    UPLOADING: "Uploading",
+    FILES: "Files",
+    RESTORE: "Restore",
+    SELECT: "Select",
+    MINIMIZE: "Minimize",
+    FILES_UPLOADED_TO: "Files uploaded to:",
+    CHOOSE_FILES_TO_UPLOAD: "Choose files to upload",
+    UPLOAD_NOW: "Upload Now",
+    YOU_SUCCESSFULLY_UPLOADED: "You successfully uploaded",
+    YOU_UPLOADED: "You uploaded",
+    ERROR_DURING_THE_UPLOAD: "Error during the upload",
+    SHARE_ALL_LINKS: "Share ALL Links",
+    CHOOSE_FILES_AND_THEN_PRESS_UPLOAD_NOW: "Choose files to upload, then click &quot;Start Upload&quot;",
+    TOTAL_FILES: "Total Files:",
+    FILE_NAME: "File name",
+    PROGRESS: "Progress",
+    DOWNLOAD_LINK: "Download Link",
+    FAIL: "Fail",
+    VIEW_LINK: "View Link",
+    START_UPLOAD: "Start Upload",
+    SELECTABLE: "Selectable"
+  }, URLs: {
+    languageFilesystemExportFolderLinks: "/file-manager/export-all-links/:folderId",
+    languageFilesystemCopy: "/file-manager/copy/:id",
+    languageFilesystemMove: "/file-manager/move/:id",
+    languageFilesystemEditMultiple: "/file-manager/edit-files/:id",
+    languageFilesystemShare: "/file-manager/share/email/:ids",
+    languageFilesystemEdit: "/file-manager/edit/:id",
+    languageFilesystemCreate: "/file-manager/create/:parentId",
+    languageFilesystemTrash: "/file-manager/delete/:id",
+    languageFilesystemGenerateLink: "/file-manager/share/urls/:id",
+    languageFilesystemBrowse: "/file-manager/list/:folderId/:page/:orderBy/:orderDirection/:globalSearch/:queryString",
+    languageFilesystemRemoved: "/file-manager/removed",
+    languageDownload: "/file/:id",
+    uploadProgress: ":hostserver/nginxuploadprogress?unique=:unique&ID=:progress_key&X-Progress-ID=:progress_key",
+    uploadCallback: "/upload/done/:uploadProgressId",
+    domain: "http://" + window.location.host
+  }, foward: function(a) {
+    location.href = a
+  }, Viewport: {
+    width: null,
+    height: null,
+    adjust: function() {
+      if (typeof window.innerWidth != "undefined") {
+        this.width = window.innerWidth,
+        this.height = window.innerHeight
+      } else {
+        if (typeof document.documentElement != "undefined" && typeof document.documentElement.clientWidth != "undefined" && document.documentElement.clientWidth != 0) {
+          this.width = document.documentElement.clientWidth,
+          this.height = document.documentElement.clientHeight
+        } else {
+          this.width = document.getElementsByTagName("body")[0].clientWidth,
+          this.height = document.getElementsByTagName("body")[0].clientHeight
+        }
+      }
+      var a = false;
+      if (navigator.userAgent.indexOf("MSIE 6") != -1) {
+        a = true
+      }
+    }
+  }, Layout: {
+    _init: function() {
+      if (CMApplication.User.email != "") {
+        $("body").addClass("loggedIn")
+      } else {
+        $("body").removeClass("loggedIn")
+      }
+      $("#lMainUsage a[href=" + window.location + "]").parent("li").addClass("active");
+      $("#lMainUsage li.active").parent("li").addClass("active");
+      $("#lMainUsage li.active").parent("ul").parent("li").addClass("active");
+      $("ul.main li li.account").live("mouseenter", function(a) {
+        $(this).addClass("hover");
+        $("ul.lMore", this).show()
+      });
+      $("ul.main li li.account").live("mouseleave", function(a) {
+        $(this).removeClass("hover");
+        $("ul.lMore", this).hide()
+      })
+    }
+  }, Widgets: {}, Pages: {}
+};
+sortFolders = function(d, c) {
+  var g = $('#sortForm input[name="folder_field"]').val();
+  if (g == "name") {
+    var f = encodeURI($(d).text()).replace("%0A%20%20%20%20%20%20%20%20", "").replace("%0A%20%20%20%20", "");
+    var e = encodeURI($(c).text()).replace("%0A%20%20%20%20%20%20%20%20", "").replace("%0A%20%20%20%20", "")
+  } else {
+    if (g == "date") {
+      var f = $(d).attr("data-date");
+      var e = $(c).attr("data-date")
+    }
+  }
+  if ($('#sortForm input[name="folder_direction"]').val() == "desc") {
+    return (f > e) ? -1 : (f < e) ? 1 : 0
+  } else {
+    return (f < e) ? -1 : (f > e) ? 1 : 0
+  }
+};
+$(document).ready(function() {
+  var counter = 0;
+  $("#internationalization a.active").click(function() {
+    return false
+  });
+  $("#internationalization").click(function() {
+    $("#internationalization li").toggleClass("open").delay(800);
+    $("div#internationalization ul").toggleClass("opened").delay(800);
+    counter++
+  });
+  $("html").click(function() {
+    if (counter % 2) {
+      $("#internationalization li").toggleClass("open").delay(800);
+      $("div#internationalization ul").toggleClass("opened").delay(800);
+      counter++
+    }
+  });
+  if (jQuery.getCookie("isJavascriptEnable") != 1) {
+    jQuery.setCookie("isJavascriptEnable", 1, 30)
+  }
+  $("#DialogWidget #signupCompleted form").live("successCallback", function(event, data) {
+    $(this).removeAttr("rel")
+  });
+  $("#free_download, #free_download2, #cancelDownload").live("click", function(event) {
+    $("#freeDownload").hide();
+    event.preventDefault();
+    $.post(this.href, $("#downloadMode form").serialize(), function(data) {
+      $("#premiumDownload").remove();
+      $("#downloadMode").replaceWith(data);
+      $("#downloadMode").slideDown("slow")
+    })
+  });
+  $("#downloadMode form").live("submit", function(event) {
+    event.preventDefault();
+    $.post(this.action, $("#downloadMode form").serialize(), function(data) {
+      $("#downloadMode").replaceWith(data);
+      $("#downloadMode").slideDown("slow")
+    })
+  });
+  $('#downloadMode form input[type="submit"], #downloadMode form button').live("click", function(event) {
+    event.preventDefault();
+    $.post($("#downloadMode form").attr("action"), $("#downloadMode form").serialize(), function(data) {
+      $("#downloadMode").replaceWith(data);
+      $("#downloadMode").slideDown("slow")
+    })
+  });
+  isSearchResult = false;
+  CMApplication.Widgets.Ajax = {
+    Events: {
+      click: function(e) {
+        if (e.isDefaultPrevented()) {
+          return
+        }
+        var internalLinkRegEx = /^(\#|\/|https?\:\/\/([^.]+\.)?wupload(\.[a-z]{2,3})+\/?)/i;
+        destination = $(this).attr("href");
+        isInternal = internalLinkRegEx.test(destination);
+        var anchorRegEx = /(\#.*)$/i;
+        isAnchor = anchorRegEx.test(destination);
+        if (!isInternal) {
+          return
+        }
+        e.preventDefault();
+        localPath = CMApplication.Widgets.Ajax.getHash(destination).replace(anchorRegEx, "");
+        if (localPath != "" && !(localPath == window.location.pathname && isAnchor)) {
+          var intelligenceRegEx = /\/intelligence(\/.*)?$/i;
+          isIntelligence = intelligenceRegEx.test(localPath);
+          if (!isIntelligence) {
+            $.history.load(localPath)
+          } else {
+            alert(CMApplication.Dictionnary.PAGE_SHOULD_BE_OPENED_IN_NEW_WINDOW);
+            window.open(localPath)
+          }
+        }
+        anchor = anchorRegEx.exec(destination);
+        if (anchor !== null && $(anchor[0]).length == 1) {
+          setTimeout("$('html,body').animate({scrollTop: " + $(anchor[0]).offset().top + "}, 800);", 1)
+        }
+      }, submit: function(e) {
+        if (e.isDefaultPrevented()) {
+          return
+        }
+        var internalLinkRegEx = /^(\#|\/|https?\:\/\/([^.]+\.)?wupload(\.[a-z]{2,3})+\/?)/i;
+        destination = $(this).attr("action");
+        isInternal = internalLinkRegEx.test(destination);
+        if (!isInternal) {
+          return
+        }
+        e.preventDefault();
+        localPath = CMApplication.Widgets.Ajax.getHash(destination);
+        jQuery.ajax({
+          url: localPath,
+          type: $(this).attr("method") || "get",
+          data: $(this).serialize(),
+          dataType: "html",
+          complete: function(XMLHttpRequest, textStatus) {
+            $("#mainContent").html(XMLHttpRequest.responseText)
+          }
+        })
+      }
+    }, start: function() {
+      alert("Starting Ajax Browsing");
+      $("form").live("submit", CMApplication.Widgets.Ajax.Events.submit);
+      $("a").live("click", CMApplication.Widgets.Ajax.Events.click);
+      $.history.init(function(hash) {
+        if (hash == "") {
+          url = CMApplication.Widgets.Ajax.getHash(location.href)
+        } else {
+          jQuery.ajax({
+            url: hash,
+            async: false,
+            global: false,
+            type: "get",
+            dataType: "html",
+            data: {
+              isGlobalAjax: "1"
+            }, complete: function(XMLHttpRequest, textStatus) {
+              $("#mainContent").html(XMLHttpRequest.responseText)
+            }
+          });
+          $("html,body").animate({
+            scrollTop: 0
+          }, 1)
+        }
+      }, {
+        unescape: ",/"
+      })
+    }, stop: function() {
+      alert("Stopping Ajax Browsing");
+      $("form").die("submit", CMApplication.Widgets.Ajax.Events.submit);
+      $("a").die("click", CMApplication.Widgets.Ajax.Events.click);
+      $.history.init(function() {}, {
+        unescape: ",/"
+      })
+    }, _init: function() {}, getHash: function(url) {
+      hostnameRegEx = /^(https?\:\/\/[^\/]+)/i;
+      return url.replace(hostnameRegEx, "")
+    }
+  };
+  CMApplication.Widgets.Purchase = {
+    Events: {
+      submit: function(e) {
+        e.preventDefault();
+        CMApplication.Widgets.Dialog.displayUrl($(this).attr("action"));
+        editForm = $("form", CMApplication.Widgets.Dialog.dialogContainer);
+        editForm.bind("successCallback", function(event, data) {
+          if (data.data.paymentSystem == 3) {
+            $(event.target).attr("rel", "keep");
+            $("#DialogWidgetContent").load(data.redirect)
+          } else {
+            location.href = data.redirect
+          }
+        });
+        editForm.bind("failCallback", function(event, data) {
+          $(event.target).attr("rel", "keep")
+        })
+      }
+    }, _init: function() {
+      $(".form_payment_system_3, .form_payment_system_8.premiumEmail, .form_payment_system_9.premiumEmail").live("submit", CMApplication.Widgets.Purchase.Events.submit)
+    }
+  };
+  CMApplication.Widgets.Tools = {
+    Events: {
+      click: function(e) {
+        e.preventDefault();
+        $(this).addClass("active");
+        $('#lUser li.lMore:not("#statsLinks") ul').show();
+        $(document).bind("click", closeUserMenuMore);
+
+        function closeUserMenuMore(e) {
+          clickedElement = $(e.target);
+          if (!clickedElement.is('#lUser li.lMore:not("#statsLinks") ul') && clickedElement.parents('#lUser li.lMore:not("#statsLinks") ul').length < 1) {
+            $('#lUser li.lMore:not("#statsLinks") a').removeClass("active");
+            $('#lUser li.lMore:not("#statsLinks") ul').hide();
+            $(document).unbind("click", closeUserMenuMore)
+          }
+        }
+      }
+    }, _init: function() {
+      $('#lUser li.lMore:not("#statsLinks") > a:not(.active)').live("click", CMApplication.Widgets.Tools.Events.click)
+    }
+  };
+  CMApplication.Widgets.Stats = {
+    Events: {
+      click: function(e) {
+        e.preventDefault();
+        $(this).addClass("active");
+        $("#lUser li.lMore#statsLinks ul").show();
+        $(document).bind("click", closeUserMenuMore);
+
+        function closeUserMenuMore(e) {
+          clickedElement = $(e.target);
+          if (!clickedElement.is("#lUser li.lMore#statsLinks ul") && clickedElement.parents("#lUser li.lMore#statsLinks ul").length < 1) {
+            $("#lUser li.lMore#statsLinks a").removeClass("active");
+            $("#lUser li.lMore#statsLinks ul").hide();
+            $(document).unbind("click", closeUserMenuMore)
+          }
+        }
+      }
+    }, _init: function() {
+      $("#lUser li.lMore#statsLinks > a:not(.active)").live("click", CMApplication.Widgets.Stats.Events.click)
+    }
+  };
+  CMApplication.Pages.Download = {
+    PasswordProtection: {
+      formElement: $("body#Download_Index #passwordProtection form"),
+      Events: {
+        submit: function(event) {
+          event.preventDefault();
+          jQuery.ajax({
+            url: $(this).attr("action"),
+            type: $(this).attr("method"),
+            dataType: "json",
+            data: $(this).serialize(),
+            success: function(data) {
+              if (data.status == "success") {
+                jQuery.ajax({
+                  url: data.redirect,
+                  type: "GET",
+                  dataType: "html",
+                  success: function(data) {
+                    $("#premiumMessages").html(data)
+                  }
+                })
+              } else {
+                container = $("#password").parent();
+                errorContainer = $("ul.errors", container);
+                if (errorContainer.length === 0) {
+                  errorContainer = $('<ul class="errors" />').appendTo(container)
+                }
+                for (fieldName in data.messages) {
+                  errors = "";
+                  field = data.messages[fieldName];
+                  for (error in field) {
+                    errors += "<li>" + field[error] + "</li>"
+                  }
+                  errorContainer.html(errors)
+                }
+              }
+            }
+          })
+        }
+      }
+    }, CountDown: {
+      delay: 60,
+      decrease: function() {
+        if (this.delay > 0) {
+          this.delay--;
+          $("#countdown").text(this.getFormatedDelay());
+          window.onPageTimeout = setTimeout("CMApplication.Pages.Download.CountDown.decrease();", 1050)
+        } else {
+          $.post("?start=1", $("#tm, #tm_hash").serialize(), function(data) {
+            $("#downloadMode").replaceWith(data)
+          })
+        }
+      },
+      hack: function() {
+          $.post("?start=1", $("#tm, #tm_hash").serialize(), function(data) {
+            $("#downloadMode").replaceWith(data)
+          })
+      }
+      , getFormatedDelay: function() {
+        returnValue = this.delay / 60;
+        returnValue = returnValue.toString().split(".");
+        minutes = returnValue[0];
+        seconds = this.delay - (minutes * 60);
+        if (seconds.toString().length == 1) {
+          seconds = "0" + seconds
+        }
+        if (minutes < 1) {
+          rv = seconds + "s"
+        } else {
+          rv = minutes + " min."
+        }
+        return rv
+      }
+    }, _init: function() {
+      CMApplication.Pages.Download.PasswordProtection.formElement.live("submit", CMApplication.Pages.Download.PasswordProtection.Events.submit);
+      if (typeof(countDownDelay) !== "undefined") {
+        CMApplication.Pages.Download.CountDown.delay = countDownDelay;
+        CMApplication.Pages.Download.CountDown.decrease();
+        try {
+          pageTracker._trackEvent("download_delay", "wait_" + countDownDelay, CMApplication.Dictionnary.USER_HAS_TO_WAIT + countDownDelay)
+        } catch(e) {}
+      }
+    }
+  };
+  CMApplication.Widgets.Dialog = {
+    dialogContainer: null,
+    Types: {
+      exception: 1,
+      error: 2,
+      notice: 3
+    }, Events: {
+      close: function(event) {
+        event.preventDefault();
+        CMApplication.Widgets.Dialog.close()
+      }, submit: function(event) {
+        event.preventDefault();
+        var formSubmitted = $(this);
+        jQuery.ajax({
+          url: formSubmitted.attr("action"),
+          data: formSubmitted.serializeArray(),
+          type: formSubmitted.attr("method"),
+          dataType: "json",
+          success: function(data, textStatus, XMLHttpResponse) {
+            if (data.status == "success") {
+              form = formSubmitted.trigger("successCallback", data)
+            } else {
+              form = formSubmitted.trigger("failCallback", data);
+              if ($(form).attr("rel") == "keep") {
+                for (var i in data.messages) {
+                  for (var j in data.messages[i]) {
+                    message = data.messages[i][j];
+                    if ($("#" + i).parent("div.elements").children(".errors").length == 0) {
+                      $("#" + i).parent("div.elements").append("<ul class='errors'><li>" + message + "</li></ul>")
+                    } else {
+                      $("#" + i).parent("div.elements").children(".errors").html("<li>" + message + "</li>")
+                    }
+                  }
+                }
+              }
+            }
+            if ($(form).attr("rel") != "keep") {
+              CMApplication.Widgets.Dialog.close()
+            }
+          }
+        })
+      }
+    }, displayMessage: function(message, type, className, positionTarget) {
+      switch (type) {
+      case CMApplication.Widgets.Dialog.Types.exception:
+        title = CMApplication.Dictionnary.SYSTEM_ERROR;
+        lclassName = "systemError";
+        break;
+      case CMApplication.Widgets.Dialog.Types.error:
+        title = CMApplication.Dictionnary.ERROR;
+        lclassName = "error";
+        break;
+      case CMApplication.Widgets.Dialog.Types.notice:
+        title = CMApplication.Dictionnary.NOTICE;
+        lclassName = "notice";
+        break
+      }
+      html = '<div id="DialogWidgetMessage" class="' + lclassName + '"><h2><span>' + title + "</span></h2>" + message + "</div>";
+      CMApplication.Widgets.Dialog.open(html, 400, className, positionTarget)
+    }, displayUrl: function(url, width, className, positionTarget) {
+      var width;
+      ajaxUrl = url;
+      jQuery.ajax({
+        url: ajaxUrl,
+        type: "get",
+        dataType: "html",
+        async: false,
+        success: function(data, textStatus, XMLHttpResponse) {
+          CMApplication.Widgets.Dialog.displayContent(data, width, className, positionTarget)
+        }
+      })
+    }, displayContent: function(content, width, className, positionTarget) {
+      CMApplication.Widgets.Dialog.open(content, width, className, positionTarget)
+    }, open: function(content, size, className, positionTarget) {
+      if (typeof(size) == "object") {
+        if ("undefined" != typeof(size.width)) {
+          width = size.width
+        } else {
+          width = undefined
+        }
+        if ("undefined" != typeof(size.height)) {
+          height = size.height
+        } else {
+          height = undefined
+        }
+      } else {
+        width = size;
+        height = undefined
+      }
+      if ("undefined" == typeof(className)) {
+        className = "defaultStyle"
+      }
+      dContainer = CMApplication.Widgets.Dialog.dialogContainer;
+      if (dContainer == null) {
+        CMApplication.Widgets.Dialog._init()
+      }
+      $("#DialogWidget").attr("class", className);
+      $("#DialogWidgetContent").html(content);
+      switch (className) {
+      case "inlineStyle":
+        if ("undefined" == typeof(width)) {
+          width = "300"
+        }
+        if ("undefined" == typeof(height)) {
+          height = "300"
+        }
+        scrolltopValue = $(positionTarget).offset().top;
+        totalHeight = scrolltopValue + parseInt(height) + parseInt($("#DialogWidgetContainer").css("padding-top")) + parseInt($("#DialogWidgetContainer").css("padding-bottom"));
+        if (totalHeight > $("body").height()) {
+          scrolltopValue -= parseInt(height)
+        }
+        scrollleftValue = $(positionTarget).offset().left;
+        totalWidth = scrollleftValue + parseInt(width) + parseInt($("#DialogWidgetContainer").css("padding-left")) + parseInt($("#DialogWidgetContainer").css("padding-right"));
+        if (totalWidth > $("body").width()) {
+          scrollleftValue -= parseInt(width)
+        }
+        break;
+      default:
+        if ("undefined" == typeof(width)) {
+          width = "700"
+        }
+        if ($("body").scrollTop() > $("html").scrollTop()) {
+          scrolltopValue = $("body").scrollTop()
+        } else {
+          scrolltopValue = $("html").scrollTop()
+        }
+      }
+      dContainer.css("height", $("body").height());
+      if ("undefined" != typeof(height)) {
+        $("#DialogWidgetContent").css("height", height)
+      }
+      $("#DialogWidgetContainer, #DialogWidgetContent").css("width", width);
+      if ("undefined" != typeof(scrolltopValue)) {
+        $("#DialogWidgetContainer").css("top", scrolltopValue)
+      }
+      if ("undefined" != typeof(scrollleftValue)) {
+        $("#DialogWidgetContainer").css("left", scrollleftValue)
+      }
+      $("body").addClass("displayDialog");
+      if ("undefined" == typeof(height)) {
+        if ($("body").scrollTop() > $("html").scrollTop()) {
+          scrolltopValue = $("body").scrollTop()
+        } else {
+          scrolltopValue = $("html").scrollTop()
+        }
+        $("#DialogWidgetContainer").css("top", scrolltopValue + 25);
+        heightDiff = CMApplication.Viewport.height - $("#DialogWidgetContainer").outerHeight();
+        if (heightDiff < 0) {
+          newHeight = $("#DialogWidgetContainer").height() - Math.abs(heightDiff) - 20;
+          $("#DialogWidgetContainer").css("height", newHeight);
+          $("#DialogWidgetContent").css("height", newHeight - 30);
+          heightDiff = CMApplication.Viewport.height - $("#DialogWidgetContainer").outerHeight()
+        }
+      }
+    }, close: function() {
+      dContainer = CMApplication.Widgets.Dialog.dialogContainer;
+      if (dContainer == null) {
+        return
+      }
+      CMApplication.Widgets.Dialog.className = null;
+      $("body").removeClass("displayDialog");
+      $("#DialogWidget").attr("class", "");
+      $("#DialogWidgetContent").html("");
+      $("#DialogWidgetContainer").css("height", "auto");
+      $("#DialogWidgetContent").css("height", "auto")
+    }, _init: function() {
+      markup = '<div id="DialogWidget"><div id="DialogWidgetBackground"></div><div id="DialogWidgetContainer"><div id="DialogWidgetClose"><span>close</span></div><div id="DialogWidgetContent"></div></div></div>';
+      CMApplication.Widgets.Dialog.dialogContainer = $(markup).appendTo("body");
+      dContainer = CMApplication.Widgets.Dialog.dialogContainer;
+      $("#DialogWidgetBackground,#DialogWidgetClose").live("click", CMApplication.Widgets.Dialog.Events.close);
+      $("#DialogWidgetContent form:not(.noDynamicSubmit form):not(#DialogWidgetContent #premiumPrices form)").live("submit", CMApplication.Widgets.Dialog.Events.submit)
+    }
+  };
+  CMApplication.Widgets.AdvancedUpload = {
+    _uploadServerHostname: null,
+    getUploadServerHostname: function() {
+      if (CMApplication.Widgets.AdvancedUpload._uploadServerHostname === null) {
+        id = Math.floor(Math.random() * 50);
+        CMApplication.Widgets.AdvancedUpload._uploadServerHostname = "s" + id + ".wupload" + myTLD
+      }
+      return CMApplication.Widgets.AdvancedUpload._uploadServerHostname
+    }, Uploads: {}, Progress: {
+      updateResponse: function(uploadIdentifier, data) {
+        CMApplication.Widgets.AdvancedUpload.setUploadProgress(uploadIdentifier, data)
+      }
+    }, Events: {
+      close: function(e) {
+        e.preventDefault();
+        CMApplication.Widgets.AdvancedUpload.close($(this).closest(".WebUploadWidget").attr("rel"))
+      }, minimize: function(e) {
+        e.preventDefault();
+        $("body").removeClass("displayWebUpload");
+        uploadContainer = $("#WebUploadWidget").hide().addClass("uploadMinimized").attr("id", "WebUploadWidget_" + $("#WebUploadWidget").attr("rel"));
+        minimizer = $("#WebUploadMinimizer");
+        if (minimizer.length == 0) {
+          xhtml = "";
+          xhtml += '<div id="WebUploadMinimizer">';
+          xhtml += "    <h3><span>" + CMApplication.Dictionnary.WEB_UPLOAD + "</span></h3>";
+          xhtml += '    <ul class="actions">';
+          xhtml += '        <li class="close"><a href="#"><span>' + CMApplication.Dictionnary.CLOSE + "</span></a></li>";
+          xhtml += "    </ul>";
+          xhtml += "</div>";
+          minimizer = $(xhtml).appendTo($("body"));
+          $("#WebUploadMinimizer").css("left", $("#container").offset().left)
+        }
+        xhtml = "";
+        xhtml += '<div class="WebUploadWidget" rel="' + uploadContainer.attr("rel") + '">';
+        if (CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].files.length > 1) {
+          heading = CMApplication.Dictionnary.UPLOADING + " " + CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].files.length + " " + CMApplication.Dictionnary.FILES
+        } else {
+          heading = CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].files[0].name
+        }
+        xhtml += "    <h4><span>" + heading + "</span></h4>";
+        xhtml += '    <ul class="actions">';
+        xhtml += '        <li class="restore"><a href="#"><span>' + CMApplication.Dictionnary.RESTORE + "</span></a></li>";
+        xhtml += '        <li class="close"><a href="#"><span>' + CMApplication.Dictionnary.CANCEL + "</span></a></li>";
+        xhtml += "    </ul>";
+        xhtml += "</div>";
+        uploadMinimized = $(xhtml).appendTo(minimizer);
+        uploadMinimized.attr("class", uploadContainer.attr("class")).removeClass("uploadMinimized");
+        uploadMinimized.append($(".progressbar", uploadContainer).clone());
+        uploadMinimized.append($(".WebUploadWidgetResult", uploadContainer).clone());
+        window.location.href = "#mainContent";
+        $("#mainContent").animate({
+          paddingTop: minimizer.height() + 48
+        })
+      }, restore: function(e) {
+        e.preventDefault();
+        $("body").addClass("displayWebUpload");
+        minimizerContainer = $(this).closest(".WebUploadWidget");
+        uploadIdentifier = minimizerContainer.attr("rel");
+        minimizerContainer.remove();
+        if ($("#WebUploadMinimizer .WebUploadWidget").length == 0) {
+          $("#WebUploadMinimizer").remove()
+        }
+        $('.WebUploadWidget[rel="' + uploadIdentifier + '"]').removeClass("uploadMinimized").attr("id", "WebUploadWidget").show();
+        if ($("body").scrollTop() > $("html").scrollTop()) {
+          scrolltopValue = $("body").scrollTop()
+        } else {
+          scrolltopValue = $("html").scrollTop()
+        }
+        $("#WebUploadWidget").css("top", scrolltopValue)
+      }, submit: function(e) {
+        uploadIdentifier = $("#WebUploadWidget").attr("rel");
+        CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step = "progress";
+        CMApplication.Widgets.AdvancedUpload.open(uploadIdentifier);
+        if ("undefined" == (typeof CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].originalAction)) {
+          CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].originalAction = $(this).attr("action")
+        }
+        $(this).attr("action", CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].originalAction + "?callbackUrl=" + CMApplication.URLs.domain + CMApplication.URLs.uploadCallback + "&X-Progress-ID=" + uploadIdentifier);
+        $("body").prepend('<iframe class="webUploadProxy" name="' + uploadIdentifier + '" src="#"></iframe>');
+        $(this).attr("target", uploadIdentifier);
+        $('input[type="file"]', this).each(function(key, elem) {
+          if ($(elem).val() == "") {
+            $(elem).remove()
+          }
+        });
+        CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload.lastUpdate = new Date().getTime();
+        CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].progressTimer = setTimeout("CMApplication.Widgets.AdvancedUpload.getUploadProgress('" + uploadIdentifier + "');", 1000);
+        $(".buttons", this).append('<button type="button" class="webUploadCancel"><span>' + CMApplication.Dictionnary.CANCEL_UPLOAD + "</span></button>");
+        setTimeout("$('#WebUploadWidget button[type=\"submit\"]').remove();", 100)
+      }, addFilesFromInstructionStep: function(event) {
+        uploadIdentifier = $("#WebUploadWidget").attr("rel");
+        CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step = "fileSelection";
+        CMApplication.Widgets.AdvancedUpload.open(uploadIdentifier)
+      }, addFiles: function(event) {
+        CMApplication.Widgets.AdvancedUpload._updateFiles();
+        $('<input type="file" name="files[]" multiple="multiple" />').appendTo($("#WebUploadWidget form .files"))
+      }
+    }, start: function() {
+      uploadIdentifier = "upload_" + new Date().getTime() + "_" + CMApplication.User.sessId + "_" + Math.floor(Math.random() * 90000);
+      CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier] = {
+        id: uploadIdentifier,
+        files: [],
+        step: "instructions",
+        upload: {
+          timerDelay: 1000,
+          speed: 0,
+          percent: 0,
+          size: 0,
+          lastSize: 0,
+          total: 0
+        }
+      };
+      eval("CMApplication.Widgets.AdvancedUpload.open" + CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step.charAt(0).toUpperCase() + CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step.slice(1) + '("' + uploadIdentifier + '")')
+    }, close: function(uploadIdentifier) {
+      confirmation = true;
+      uploadContainer = $('.uploadMinimized.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      if (uploadContainer.is(".progress")) {
+        confirmation = confirm(CMApplication.Dictionnary.LEAVING_WILL_CANCEL_UPLOADS)
+      }
+      if (confirmation) {
+        $('iframe.webUploadProxy[name="' + uploadIdentifier + '"]').remove();
+        $('.WebUploadWidget[rel="' + uploadIdentifier + '"]').remove();
+        if ($("#WebUploadMinimizer .WebUploadWidget").length == 0) {
+          $("#WebUploadMinimizer").remove()
+        }
+        if ($("#WebUploadWidget").length == 0) {
+          $("body").removeClass("displayWebUpload")
+        }
+      }
+    }, open: function(uploadIdentifier) {
+      eval("CMApplication.Widgets.AdvancedUpload.open" + CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step.charAt(0).toUpperCase() + CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step.slice(1) + '("' + uploadIdentifier + '")')
+    }, _open: function(uploadIdentifier) {
+      if ($("#WebUploadWidget").length > 0) {
+        return
+      }
+      xhtml = "";
+      xhtml += '<div id="WebUploadWidget" class="WebUploadWidget" rel="' + uploadIdentifier + '">';
+      xhtml += '   <div class="WebUploadWidgetBackground"></div>';
+      xhtml += '   <div class="WebUploadWidgetContainer">';
+      xhtml += "       <h3><span>" + CMApplication.Dictionnary.WEB_UPLOAD + "</span></h3>";
+      xhtml += '       <ul class="actions">';
+      xhtml += '           <li class="restore"><a href=""><span>' + CMApplication.Dictionnary.RESTORE + "</span></a></li>";
+      xhtml += '           <li class="minimize"><a href=""><span>' + CMApplication.Dictionnary.MINIMIZE + "</span></a></li>";
+      xhtml += '           <li class="close"><a href=""><span>' + CMApplication.Dictionnary.CLOSE + "</span></a></li>";
+      xhtml += "       </ul>";
+      xhtml += '       <form action="http://' + CMApplication.Widgets.AdvancedUpload.getUploadServerHostname() + '" method="post" enctype="multipart/form-data">';
+      if (jQuery.getCookie("email") != "") {
+        xhtml += '           <div class="destination">';
+        xhtml += '               <input type="hidden" name="folderId" class="destinationFolderId" value="0" />';
+        xhtml += "           </div>"
+      }
+      xhtml += '           <div class="files">';
+      xhtml += "               <label><span>" + CMApplication.Dictionnary.CHOOSE_FILES_TO_UPLOAD + "</span></label>";
+      xhtml += '               <input type="file" name="files[]" multiple="multiple" />';
+      xhtml += "           </div>";
+      xhtml += '           <div class="buttons">';
+      xhtml += '               <button type="submit" class="webUploadSubmit"><span>' + CMApplication.Dictionnary.START_UPLOAD + "</span></button>";
+      xhtml += "           </div>";
+      xhtml += "       </form>";
+      xhtml += "   </div>";
+      xhtml += "</div>";
+      $("body").addClass("displayWebUpload").append(xhtml);
+      if ($("body").scrollTop() > $("html").scrollTop()) {
+        scrolltopValue = $("body").scrollTop()
+      } else {
+        scrolltopValue = $("html").scrollTop()
+      }
+      $("#WebUploadWidget").css("top", scrolltopValue)
+    }, openComplete: function(uploadIdentifier, data) {
+      CMApplication.Widgets.AdvancedUpload.setUploadProgress(uploadIdentifier, {
+        total: CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload.total,
+        current: CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload.total
+      });
+      clearTimeout(CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].progressTimer);
+      uploadContainer = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      uploadContainer.addClass("complete").removeClass("instructions").removeClass("progress").removeClass("fileSelection");
+      var files = [];
+      var failedCnt = 0;
+      if (typeof data == "string") {
+        $(CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].files).each(function(key, value) {
+          failedCnt++;
+          value.isSuccess = false;
+          value.statusMessage = data;
+          files.push(value)
+        })
+      } else {
+        $(data).each(function(key, value) {
+          file = {
+            name: value.filename
+          };
+          switch (value.statusCode) {
+          case 0:
+            file.isSuccess = true;
+            file.size = value.link.size;
+            file.id = value.link.id;
+            break;
+          default:
+            file.isSuccess = false;
+            file.statusMessage = value.statusMessage;
+            failedCnt++
+          }
+          files.push(file)
+        })
+      }
+      CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].files = files;
+      uploadContainer = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      if (uploadContainer.length > 0) {
+        CMApplication.Widgets.AdvancedUpload._updateFiles(uploadIdentifier);
+        $("form, .progressbar", uploadContainer).remove();
+        if (failedCnt == 0) {
+          resultClass = "success";
+          resultHeading = CMApplication.Dictionnary.YOU_SUCCESSFULLY_UPLOADED + " " + files.length + " file" + (files.length > 1 ? "s" : "")
+        } else {
+          if (files.length > failedCnt) {
+            resultClass = "warning";
+            resultHeading = CMApplication.Dictionnary.YOU_UPLOADED + " " + (files.length - failedCnt) + " of " + files.length + CMApplication.Dictionnary.FILES
+          } else {
+            resultClass = "error";
+            resultHeading = CMApplication.Dictionnary.ERROR_DURING_THE_UPLOAD
+          }
+        }
+        xhtml = "";
+        xhtml += '<div class="WebUploadWidgetResult ' + resultClass + '">';
+        xhtml += "    <h4><span>" + resultHeading + "</span></h4>";
+        xhtml += "</div>";
+        if (files.length != failedCnt) {
+          xhtml += '    <a href="' + CMApplication.URLs.languageFilesystemGenerateLink.replace(":id", "") + '" class="viewAllLinks"><span>' + CMApplication.Dictionnary.SHARE_FILES + "</span></a>"
+        }
+        uploadContainer.each(function(key, container) {
+          if ($(container).parent().is("body")) {
+            $(".WebUploadWidgetContainer", container).append(xhtml)
+          } else {
+            $(container).append(xhtml)
+          }
+        })
+      }
+      if ($("#fileBrowser").length == 1) {
+        CMApplication.Widgets.FileManager.FileBrowser.browse()
+      }
+      $('iframe.webUploadProxy[name="' + uploadIdentifier + '"]').remove()
+    }, openInstructions: function(uploadIdentifier) {
+      CMApplication.Widgets.AdvancedUpload._open(uploadIdentifier);
+      uploadContainer = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      uploadContainer.addClass("instructions").removeClass("complete").removeClass("fileSelection").removeClass("progress");
+      if ($("div.instructions", uploadContainer).length == 0) {
+        xhtml = "";
+        xhtml += '       <div class="instructions">';
+        xhtml += "           <p>" + CMApplication.Dictionnary.CHOOSE_FILES_AND_THEN_PRESS_UPLOAD_NOW + "</p>";
+        xhtml += "       </div>";
+        $(xhtml).insertAfter($("ul.actions", uploadContainer))
+      }
+    }, openFileSelection: function(uploadIdentifier) {
+      CMApplication.Widgets.AdvancedUpload._open(uploadIdentifier);
+      uploadContainer = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      uploadContainer.addClass("fileSelection").removeClass("complete").removeClass("instructions").removeClass("progress");
+      $(".files label span", uploadContainer).text("Add More Files");
+      if ($("table", uploadContainer).length == 0) {
+        xhtml = "";
+        xhtml += '       <div class="fileListing">';
+        xhtml += "       <table>";
+        xhtml += "           <thead>";
+        xhtml += "               <tr>";
+        xhtml += '                   <th class="fileName" colspan="2">' + CMApplication.Dictionnary.FILE_NAME + "</th>";
+        xhtml += "               </tr>";
+        xhtml += "           </thead>";
+        xhtml += "           <tbody>";
+        xhtml += "           </tbody>";
+        xhtml += "       </table>";
+        xhtml += "       </div>";
+        $(xhtml).insertBefore($("form", uploadContainer))
+      }
+    }, openProgress: function(uploadIdentifier) {
+      CMApplication.Widgets.AdvancedUpload._open(uploadIdentifier);
+      uploadContainer = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      uploadContainer.addClass("progress").removeClass("complete").removeClass("instructions").removeClass("fileSelection");
+      if ($("div.progressbar", uploadContainer).length == 0) {
+        xhtml = "";
+        xhtml += '       <div class="progressbar">';
+        xhtml += "           <strong>" + CMApplication.Dictionnary.PLEASE_WAIT + "</strong>";
+        xhtml += '           <div class="total">';
+        xhtml += '              <div class="progress">';
+        xhtml += "              </div>";
+        xhtml += "           </div>";
+        xhtml += '           <div class="info">';
+        xhtml += '               <span class="percent">0%</span>';
+        xhtml += '               <span class="speed">0b/s</span>';
+        xhtml += "           </div>";
+        xhtml += "       </div>";
+        $(xhtml).insertAfter($("form", uploadContainer));
+        CMApplication.Widgets.AdvancedUpload.updateProgress(uploadIdentifier, 500)
+      }
+    }, updateProgress: function(uploadIdentifier, nextCallDelay) {
+      uploadContainers = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      uploadContainers.each(function(key, value) {
+        uploadContainer = $(value);
+        if ($("div.progressbar", uploadContainer).length > 0) {
+          myUpload = CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload;
+          $("div.progressbar span.percent", uploadContainer).text(myUpload.percent + "%");
+          $("div.progressbar span.speed", uploadContainer).text(CMApplication.Widgets.FileManager.FileBrowser.ItemInfo.getHumanReadableSize(myUpload.speed) + "/s");
+          newWidth = "" + Math.round(myUpload.percent) + "%";
+          $(".progress", uploadContainer).css("width", newWidth)
+        }
+      })
+    }, getUploadProgress: function(uploadIdentifier) {
+      if (CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload.percent < 100) {
+        jQuery.ajax({
+          url: "/keep-alive.php",
+          cache: false,
+          global: false
+        });
+        xhtml = '<script type="text/javascript" src="' + CMApplication.URLs.uploadProgress.replace(":unique", new Date().getTime().toString()).replace(":hostserver", CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].originalAction).replace(":progress_key", uploadIdentifier).replace(":progress_key", uploadIdentifier) + '"><\/script>';
+        $("body").append(xhtml)
+      }
+    }, setUploadProgress: function(uploadIdentifier, data) {
+      if ("undefined" == (typeof CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier])) {
+        return
+      }
+      uploadStatus = CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload;
+      now = new Date().getTime();
+      uploadStatus.lastSize = uploadStatus.size;
+      uploadStatus.size = data.current;
+      uploadStatus.total = data.total;
+      uploadStatus.percent = Math.round(data.current * 100 / data.total);
+      if (uploadStatus.percent >= 100) {
+        clearTimeout(CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].progressTimer);
+        uploadStatus.percent = 100
+      }
+      if ("undefined" == (typeof uploadStatus.onePercentSize)) {
+        uploadStatus.onePercentSize = 1 / 100 * data.total
+      }
+      if (uploadStatus.lastUpdate != now) {
+        uploadStatus.speed = (uploadStatus.size - uploadStatus.lastSize) / ((parseInt(now) - parseInt(uploadStatus.lastUpdate)) / 1000)
+      } else {
+        uploadStatus.speed = 0
+      }
+      timerDelay = 0;
+      if (uploadStatus.percent < 100) {
+        nextSizeProgressCall = (uploadStatus.percent + 1) * uploadStatus.onePercentSize;
+        byteDiff = nextSizeProgressCall - uploadStatus.size;
+        timerDelay = Math.ceil(byteDiff / uploadStatus.speed * 1000);
+        if (timerDelay < 500) {
+          timerDelay = 300
+        }
+        if (timerDelay > 8000) {
+          timerDelay = 8000
+        }
+        CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].progressTimer = setTimeout("CMApplication.Widgets.AdvancedUpload.getUploadProgress('" + uploadIdentifier + "')", timerDelay)
+      }
+      uploadStatus.lastUpdate = now;
+      CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload = uploadStatus;
+      CMApplication.Widgets.AdvancedUpload.updateProgress(uploadIdentifier, timerDelay)
+    }, _updateFiles: function(uploadIdentifier) {
+      if ("undefined" == (typeof uploadIdentifier) && $("#WebUploadWidget").length > 0) {
+        uploadIdentifier = $("#WebUploadWidget").attr("rel")
+      }
+      if ("undefined" == (typeof uploadIdentifier)) {
+        return
+      }
+      uploadContainer = $('.WebUploadWidget[rel="' + uploadIdentifier + '"]');
+      filesElements = $('form input[type="file"]', uploadContainer);
+      if (filesElements.length > 0 && CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step != "complete") {
+        var files = [];
+        $(filesElements).each(function(key, input) {
+          if ("undefined" != (typeof input.files)) {
+            $(input.files).each(function(key, value) {
+              files.push({
+                name: value.name,
+                size: value.size
+              })
+            })
+          } else {
+            files.push({
+              name: $(input).val(),
+              size: null
+            })
+          }
+        });
+        CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier]["files"] = files
+      }
+      var xhtml = "";
+      var totalSize = 0;
+      $(CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier]["files"]).each(function(key, file) {
+        trClass = new Array();
+        if (CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step == "complete") {
+          trClass.push(file.isSuccess ? "success" : "fail")
+        }
+        if (! (key % 2)) {
+          trClass.push("odd")
+        }
+        xhtml += "               <tr" + (trClass.length > 0 ? ' class="' + trClass.join(" ") + '"' : "") + (CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step == "complete" && file.isSuccess ? ' rel="F' + file.id + '"' : "") + ">";
+        colspan = 2;
+        addxhtml = "";
+        if (CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].step == "complete") {
+          if (!file.isSuccess) {
+            colspan = 1;
+            addxhtml += '                   <th class="message"><strong>' + CMApplication.Dictionnary.FAIL + "</strong> " + file.statusMessage + "</th>"
+          }
+        }
+        xhtml += '                   <th class="fileName" colspan="' + colspan + '"><span>' + file.name + "</span></th>";
+        xhtml += addxhtml;
+        xhtml += "               </tr>"
+      });
+      $("table tbody", uploadContainer).html(xhtml);
+      CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier].upload.total = totalSize
+    }, _init: function() {
+      $("#div_adv_upload_files .chooseFiles a").live("click", function(e) {
+        e.preventDefault();
+        CMApplication.Widgets.AdvancedUpload.start()
+      });
+      $(".WebUploadWidget li.restore a").live("click", CMApplication.Widgets.AdvancedUpload.Events.restore);
+      $("#WebUploadMinimizer > ul.actions li.close a").live("click", function(e) {
+        e.preventDefault();
+        $("#WebUploadMinimizer .WebUploadWidget li.close a").trigger("click")
+      });
+      $(".WebUploadWidget li.close a, .WebUploadWidget .webUploadCancel").live("click", CMApplication.Widgets.AdvancedUpload.Events.close);
+      $(".WebUploadWidget li.minimize a").live("click", CMApplication.Widgets.AdvancedUpload.Events.minimize);
+      $(".WebUploadWidget.fileSelection form").live("submit", CMApplication.Widgets.AdvancedUpload.Events.submit);
+      if (jQuery.browser.msie) {
+        $('.WebUploadWidget.instructions input[type="file"]').live("click", function(e) {
+          $("#inputFileSelection").removeAttr("id");
+          clearTimeout(ieFixForFileSelectionOnChangeEventTimer);
+          $(this).attr("id", "inputFileSelection");
+          ieFixForFileSelectionOnChangeEventTimer = setTimeout("ieFixForFileSelectionOnChangeEvent()", 200)
+        })
+      }
+      $('.WebUploadWidget.instructions input[type="file"]').live("change", CMApplication.Widgets.AdvancedUpload.Events.addFilesFromInstructionStep);
+      $('.WebUploadWidget input[type="file"]').live("change", CMApplication.Widgets.AdvancedUpload.Events.addFiles);
+      $(".WebUploadWidget tbody td.share a").live("click", function(e) {
+        e.preventDefault();
+        CMApplication.Widgets.Dialog.displayUrl($(this).attr("href"))
+      });
+      $(".WebUploadWidget tbody td.link a").live("click", function(e) {
+        e.preventDefault();
+        $(this).closest("tr").next().toggle()
+      });
+      $(".WebUploadWidget tfoot td.link a").live("click", function(e) {
+        e.preventDefault();
+        $(".WebUploadWidgetContainer a.viewAllLinks", $(this).closest(".WebUploadWidget")).trigger("click")
+      });
+      $(".WebUploadWidgetContainer a.viewAllLinks").live("click", function(e) {
+        e.preventDefault();
+        var ids = new Array();
+        $('.WebUploadWidget[rel="' + $(this).closest(".WebUploadWidget").attr("rel") + '"] table tbody tr.success:not(.links)').each(function(key, value) {
+          ids.push($(value).attr("rel"))
+        });
+        CMApplication.Widgets.Dialog.displayUrl($(this).attr("href") + ids)
+      })
+    }
+  };
+  CMApplication.Widgets.Upload = {
+    Events: {
+      submit: function(event) {
+        uploadIdentifier = "upload_" + new Date().getTime() + "_" + CMApplication.User.sessId + "_" + Math.floor(Math.random() * 90000);
+        if (undefined != $("#input-file")[0] && undefined != $("#input-file")[0].files && undefined != $("#input-file")[0].files.length && $("#input-file")[0].files.length > 1) {
+          uploadFilename = "Upload of " + $("#input-file")[0].files.length + " files"
+        } else {
+          uploadFilename = $('input[type="file"]', this).val()
+        }
+        if (!$("form.webUpload").attr("originalAction")) {
+          $("form.webUpload").attr("originalAction", $("form.webUpload").attr("action"))
+        }
+        $("form.webUpload").attr("action", $("form.webUpload").attr("originalAction") + "/?X-Progress-ID=" + uploadIdentifier);
+        $("body").prepend('<iframe rel="' + uploadIdentifier + '" originalAction="' + $("form.webUpload").attr("originalAction") + '" class="upload" name="' + uploadIdentifier + '" src="#"></iframe>');
+        $(this).attr("target", uploadIdentifier);
+        CMApplication.Widgets.Upload.Progress._construct(uploadIdentifier, uploadFilename);
+        setTimeout("if ($('.webUpload').length > 0) $('.webUpload')[0].reset()", 500);
+        callbackUrlField = $('input[name="callbackUrl"]', this);
+        if (callbackUrlField.length == 0) {
+          callbackUrlField = jQuery('<input type="hidden" name="callbackUrl" value="" />').appendTo($(this))
+        }
+        callbackUrlField.val(CMApplication.URLs.domain + CMApplication.URLs.uploadCallback);
+        if (CMApplication.User.role == CMApplication.User.RolesValues.ANONYMOUS) {
+          $("#quickUpload").hide()
+        }
+        if (false && $("iframe.upload").length == 1) {
+          CMApplication.Widgets.Ajax.start()
+        }
+      }
+    }, Progress: {
+      InProgressTimer: {}, _construct: function(uploadIdentifier, uploadFilename) {
+        uploadStatusWrapper = $("#uploadStatusWrapper");
+        if (uploadStatusWrapper.length == 0) {
+          $('<div id="uploadStatusContainer"><h3>' + CMApplication.Dictionnary.YOUR_UPLOADS + '</h3><div id="uploadStatusWrapper"></div><a id="viewAllLinks" href="">' + CMApplication.Dictionnary.VIEW_ALL_LINKS + "</a></div>").appendTo("body");
+          $("#viewAllLinks").live("click", function(event) {
+            event.preventDefault();
+            var patt1 = new RegExp("[^/]*$");
+            var links = "";
+            $("#uploadStatusWrapper a.link").each(function() {
+              links += patt1.exec($(this).attr("href")) + ","
+            });
+            CMApplication.Widgets.Dialog.displayUrl(CMApplication.URLs.languageFilesystemGenerateLink.replace(":id", links))
+          });
+          uploadStatusWrapper = $("#uploadStatusWrapper")
+        }
+        if (uploadFilename.length > 37) {
+          uploadFilename = uploadFilename.substring(0, 17) + "..." + uploadFilename.substring(uploadFilename.length - 17)
+        }
+        uploadStatusWrapper.append('<div id="' + uploadIdentifier + '" class="uploadStatus"><span class="filename">' + uploadFilename + '</span><div class="progressBar"><div class="state"></div></div><span class="percentageCompleted"></span></div>');
+        CMApplication.Widgets.Upload.Progress.updateRequest(uploadIdentifier)
+      }, complete: function(uploadIdentifier, results) {
+        clearTimeout(CMApplication.Widgets.Upload.Progress.InProgressTimer[uploadIdentifier]);
+        $("#" + uploadIdentifier + " .progressBar").remove();
+        $('iframe[rel="' + uploadIdentifier + '"]').remove();
+        var xhtml = "";
+        var errorsMsg = "";
+        var successLinks = [];
+        $(results).each(function(key, value) {
+          xhtml += '<div class="element">';
+          if (value.statusCode == 0 && value.linkId != 0) {
+            successLinks.push(value.linkId)
+          } else {
+            xhtml += CMApplication.Dictionnary.ERROR + " <span>" + value.filename + "</span>";
+            errorsMsg += "<li><strong>" + value.filename + "</strong>: " + value.statusMessage + "</li>"
+          }
+          xhtml += "</div>"
+        });
+        if (successLinks.length > 0) {
+          viewLinkUrl = CMApplication.URLs.languageFilesystemGenerateLink.replace(":id", successLinks.join(","));
+          xhtml += '<div class="element">';
+          xhtml += CMApplication.Dictionnary.COMPLETED + " ";
+          xhtml += '<a href="' + viewLinkUrl + '" onclick="CMApplication.Widgets.Dialog.displayUrl(this.href, 700); return false;" class="link" title="' + CMApplication.Dictionnary.VIEW_LINKS + '"><span>' + CMApplication.Dictionnary.VIEW_LINKS + "</span></a>";
+          xhtml += "</div>"
+        }
+        xhtml += '<a href="#" onclick="CMApplication.Widgets.Upload.Progress.close(\'' + uploadIdentifier + '\'); return false;" class="close" title="' + CMApplication.Dictionnary.CLOSE + '"><span>' + CMApplication.Dictionnary.CLOSE + "</span></a>";
+        $("#" + uploadIdentifier + " .percentageCompleted").html(xhtml);
+        if (false && $("iframe.upload").length == 0) {
+          CMApplication.Widgets.Ajax.stop()
+        }
+        if (errorsMsg != "") {
+          errorsMsg = CMApplication.Dictionnary.FOLLOWING_ERROR_DURING_UPLOAD + "<ul>" + errorsMsg + "</ul>";
+          CMApplication.Widgets.Dialog.displayMessage(errorsMsg, CMApplication.Widgets.Dialog.Types.error)
+        }
+      }, close: function(uploadIdentifier) {
+        $("#" + uploadIdentifier).remove();
+        if ($("#uploadStatusWrapper").children().length == 0) {
+          $("#uploadStatusContainer").remove()
+        }
+      }, updateRequest: function(uploadIdentifier) {
+        jQuery.ajax({
+          url: "/keep-alive.php",
+          cache: false
+        });
+        xhtml = '<script type="text/javascript" src="' + CMApplication.URLs.uploadProgress.replace(":unique", new Date().getTime().toString()).replace(":hostserver", $('iframe[rel="' + uploadIdentifier + '"]').attr("originalAction")).replace(":progress_key", uploadIdentifier).replace(":progress_key", uploadIdentifier) + '"><\/script>';
+        CMApplication.Widgets.Upload.Progress.InProgressTimer[uploadIdentifier] = setTimeout("$('body').append('" + xhtml + "');", 2000)
+      }, updateResponse: function(uploadIdentifier, data) {
+        if ("undefined" != (typeof CMApplication.Widgets.AdvancedUpload.Uploads[uploadIdentifier])) {
+          CMApplication.Widgets.AdvancedUpload.setUploadProgress(uploadIdentifier, data)
+        } else {
+          if (data.current != null) {
+            percent = Math.ceil(parseInt(data.current) / parseInt(data.total) * 100).toString() + "%";
+            $("#" + uploadIdentifier + " .state").css("width", percent);
+            if (data.percent != 100) {
+              CMApplication.Widgets.Upload.Progress.updateRequest(uploadIdentifier);
+              $("#" + uploadIdentifier + " .percentageCompleted").text(percent)
+            }
+          }
+        }
+      }
+    }, _init: function() {
+      $(".webUpload").live("submit", CMApplication.Widgets.Upload.Events.submit)
+    }
+  };
+  CMApplication.Widgets.Internationalization = {
+    widgetLink: $("#internationalization"),
